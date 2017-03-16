@@ -3,6 +3,9 @@ var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 3000
 
+import bodyParser from 'body-parser';
+import users from './src/server/routes/users.js'
+
 // using webpack-dev-server and middleware in development environment
 if(process.env.NODE_ENV !== 'production') {
   var webpackDevMiddleware = require('webpack-dev-middleware');
@@ -14,6 +17,10 @@ if(process.env.NODE_ENV !== 'production') {
   app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
   app.use(webpackHotMiddleware(compiler));
 }
+
+app.use(bodyParser.json());
+
+app.use('api/users', users);
 
 app.use(express.static(path.join(__dirname, 'dist')));
 

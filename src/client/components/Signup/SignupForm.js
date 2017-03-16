@@ -11,7 +11,7 @@ class SignupForm extends Component {
 
 		this.state = {
 			signupStatus: 0,
-			form: <SignupPart1 changeForm={this.handleFormChange}/>
+			form: <SignupPart1 userSignupRequest={userSignupRequest} changeForm={this.handleFormChange}/>
 		};
 	}
 
@@ -33,6 +33,7 @@ class SignupForm extends Component {
 
 	render() {
 		const { userSignupRequest } = this.props;
+
 		return (
 			<div>
 				{this.state.form}
@@ -41,4 +42,8 @@ class SignupForm extends Component {
 	}
 }
 
-export default connect(null, { userSignupRequest })(SignupForm);
+SignupForm.propTypes = {
+	userSignupRequest: React.PropTypes.func.isRequired
+}
+
+export default connect((state) => { return {} }, { userSignupRequest })(SignupForm);

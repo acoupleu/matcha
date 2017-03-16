@@ -5,7 +5,7 @@ var autoprefixer = require('autoprefixer');
 module.exports = {
   // Start building in src folder
   entry: [
-    './src/index'
+    './src/client/index'
   ],
   module: {
    loaders: [
@@ -21,7 +21,7 @@ module.exports = {
    ]
  },
  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
- 
+
   resolve: {
     extensions: ['', '.js']
   },

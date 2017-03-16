@@ -58,7 +58,7 @@ export default class SignupPart1 extends Component {
 				<input type="text" value={this.state.town} onChange={this.onChange} name="town"/>
 			</label>
 			<br />
-			<button type="button" onClick={(event) => {this.props.userSignupRequest(this.state);this.props.changeForm}}>Suivant</button>
+			<button type="button" onClick={this.props.userSignupRequest(this.state)}>Suivant</button>
 		</div>
 	)};
 }
